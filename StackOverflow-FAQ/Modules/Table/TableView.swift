@@ -20,9 +20,12 @@ final class TableView: UITableView {
     }
     
     private func setup(with type: CellType) {
-        backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        backgroundColor = #colorLiteral(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
         showsVerticalScrollIndicator = false
         register(TableCell.self, forCellReuseIdentifier: String().cellIdentifier(type: type))
+//        if type != .tags {
+//            rowHeight = 100
+//        }
     }
 }
 

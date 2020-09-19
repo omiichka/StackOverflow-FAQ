@@ -17,6 +17,7 @@ struct Answer: Decodable {
     var answerId: Int?
     var questionId: Int?
     var contentLicense: String?
+    var body: String?
     
     enum CodingKeys: String, CodingKey {
         case owner
@@ -27,17 +28,19 @@ struct Answer: Decodable {
         case answerId = "answer_id"
         case questionId = "question_id"
         case contentLicense = "content_license"
+        case body
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        owner = try container.decode(Owner.self, forKey: .owner)
-        isAccepted = try container.decode(Bool.self, forKey: .isAccepted)
-        score = try container.decode(Int.self, forKey: .score)
-        lastActivityDate = try container.decode(Int.self, forKey: .lastActivityDate)
-        creationDate = try container.decode(Int.self, forKey: .creationDate)
-        answerId = try container.decode(Int.self, forKey: .answerId)
-        questionId = try container.decode(Int.self, forKey: .questionId)
-        contentLicense = try container.decode(String.self, forKey: .contentLicense)
+        owner = try? container.decode(Owner.self, forKey: .owner)
+        isAccepted = try? container.decode(Bool.self, forKey: .isAccepted)
+        score = try? container.decode(Int.self, forKey: .score)
+        lastActivityDate = try? container.decode(Int.self, forKey: .lastActivityDate)
+        creationDate = try? container.decode(Int.self, forKey: .creationDate)
+        answerId = try? container.decode(Int.self, forKey: .answerId)
+        questionId = try? container.decode(Int.self, forKey: .questionId)
+        contentLicense = try? container.decode(String.self, forKey: .contentLicense)
+        body = try? container.decode(String.self, forKey: .body)
     }
 }
