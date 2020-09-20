@@ -1,5 +1,5 @@
 //
-//  TableView.swift
+//  QuestionView.swift
 //  StackOverflow-FAQ
 //
 //  Created by Artem Golovanev on 14.09.2020.
@@ -8,24 +8,22 @@
 
 import UIKit
 
-final class TableView: UITableView {
+final class QuestionView: UITableView {
     
-    init(with type: CellType) {
-        super.init(frame: .zero, style: .grouped)
-        setup(with: type)
+    init() {
+        super.init(frame: .zero, style: .plain)
+        setup()
     }
         
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup(with type: CellType) {
+    private func setup() {
         backgroundColor = #colorLiteral(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
+        separatorStyle = .none
         showsVerticalScrollIndicator = false
-        register(TableCell.self, forCellReuseIdentifier: String().cellIdentifier(type: type))
-//        if type != .tags {
-//            rowHeight = 100
-//        }
+        register(QuestionCell.self, forCellReuseIdentifier: String().cellIdentifier(type: .questions))
     }
 }
 

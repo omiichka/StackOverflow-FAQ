@@ -11,13 +11,14 @@ import Foundation
 struct Query {
     let page: Int
     let pageSize: Int
-    let toDate: Int
-    let maxCount: Int
     let sort: SortType
+    var toDate: Int? = nil
+    var maxCount: Int? = nil
     var tagged: String? = nil
+    var questionID: String? = nil
     
-    static let defaultItem = Query(page: 1, pageSize: 25, toDate: today(), maxCount: 999, sort: SortType.questions(item: .activity))
-    static let defaultTaggedItem = Query(page: 1, pageSize: 25, toDate: today(), maxCount: 999, sort: SortType.questions(item: .activity), tagged: "iOS")
+    static let defaultItem = Query(page: 1, pageSize: 25, sort: SortType.questions(item: .activity))
+    static let defaultTaggedItem = Query(page: 1, pageSize: 25, sort: SortType.questions(item: .activity), tagged: "iOS")
     
     static func today() -> Int {
         return Int(Date().timeIntervalSince1970)

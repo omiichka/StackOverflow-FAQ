@@ -11,10 +11,8 @@ import UIKit
 final class DetailController: UIViewController {
     
     private let contentView = DetailView()
-//    private let question: Question
     
     init(question: Question) {
-        print(question, "question")
         super.init(nibName: nil, bundle: nil)
         contentView.question = question
     }
@@ -36,11 +34,13 @@ final class DetailController: UIViewController {
 private extension DetailController {
     
     func setup() {
+        navigationController?.navigationBar.prefersLargeTitles = false
         contentView.showAnswersButton.addTarget(self, action: #selector(didHandleShowAnswersButton(_:)), for: .touchUpInside)
     }
     
     @objc func didHandleShowAnswersButton(_ sender: UIButton) {
-        let answerController = TableController<AnswerItem>(with: .answers)
-        present(answerController, animated: true, completion: nil)
+        let id = contentView.question?.questionId ?? 0
+        let answerController = AnswerController(questionID: String(id))
+        navigationController?.present(answerController, animated: true, completion: nil)
     }
 }
