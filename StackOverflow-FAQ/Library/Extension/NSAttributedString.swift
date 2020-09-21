@@ -9,17 +9,15 @@
 import UIKit
 
 extension NSAttributedString {
-    func setupAnswersBody(with answer: Answer) -> NSAttributedString {
-        var answerBody = answer.body
-        let attributedString = NSMutableAttributedString(string: answer.body ?? "")
-        let pattern = "<code>[^>]+</code>"
-        let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+    
+    func setupAnswersBody(with body: String?) -> NSAttributedString {
+        var answerBody = body
+        let attributedString = NSMutableAttributedString(string: body ?? "")
+        let regex = try? NSRegularExpression(pattern: "<code>[^>]+</code>", options: .caseInsensitive)
         let matches = regex?.matches(in: answerBody ?? "", options: [], range: NSRange(location: 0, length: answerBody?.count ?? 0))
-        for match in matches ?? [] {
-            attributedString.addAttribute(.backgroundColor, value: UIColor(red: 0, green: 110.0 / 255.0, blue: 200.0 / 255.0, alpha: 0.5), range: match.range)
-            if let aSize = UIFont(name: "Courier", size: 17) {
-                attributedString.addAttribute(.font, value: aSize, range: match.range)
-            }
+        (matches ?? []).forEach {
+            guard let value = UIFont(name: "Courier", size: 17) else { return }
+                attributedString.addAttribute(.font, value: value, range: $0.range)
         }
         var cycle = true
         while cycle {

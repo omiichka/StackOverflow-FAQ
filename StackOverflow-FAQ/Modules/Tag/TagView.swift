@@ -13,13 +13,17 @@ final class TagView: UITableView {
     init() {
         super.init(frame: .zero, style: .grouped)
         setup()
+        setupActivity()
     }
         
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+private extension TagView {
     
-    private func setup() {
+    func setup() {
         backgroundColor = #colorLiteral(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
         layer.cornerRadius = 25
         layer.borderWidth = 2

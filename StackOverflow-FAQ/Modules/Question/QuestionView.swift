@@ -13,13 +13,17 @@ final class QuestionView: UITableView {
     init() {
         super.init(frame: .zero, style: .plain)
         setup()
+        setupActivity()
     }
         
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+private extension QuestionView {
     
-    private func setup() {
+    func setup() {
         backgroundColor = #colorLiteral(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
         separatorStyle = .none
         showsVerticalScrollIndicator = false

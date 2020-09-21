@@ -8,23 +8,17 @@
 
 import UIKit
 
-protocol BasePresenterOutput: class {
-    func reloadData(for table: CellType?)
+protocol AnswerPresenterOutput: class {
+    func reloadData()
+    func showEmptyContent()
+    func setActivityState(isOn: Bool)
 }
 
-//extension BasePresenterOutput {
-//    func reloadData(for table: CellType? = nil) {}
-//}
-
-//protocol AnswerPresenterOutput: class {
-//    func reloadData()
-//}
-
 final class AnswerPresenter: NSObject {
-
+    
     private var dataSource: AnswerItem?
-
-    unowned var delegate: BasePresenterOutput!
+    
+    unowned var delegate: AnswerPresenterOutput!
 }
 
 extension AnswerPresenter: UITableViewDataSource {
@@ -43,20 +37,26 @@ extension AnswerPresenter: UITableViewDataSource {
 extension AnswerPresenter: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        let cell = AnswerCell()
+        cell.answer = dataSource?.items?[indexPath.row]
+        return cell.height
     }
-    
 }
 
 extension AnswerPresenter {
-
+    
     func fetch(with questionID: String) {
+        delegate.setActivityState(isOn: true)
         let query = Query(page: 1, pageSize: 25, sort: .answers(item: .activity), questionID: questionID)
         NetworkService<AnswerItem>().fetch(with: .answers, and: query) { [unowned self] (data, error) in
-             guard let data = data else { return }
+            guard let data = data else { return }
             DispatchQueue.main.async {
                 self.dataSource = data
-                self.delegate.reloadData(for: .answers)
+                self.delegate.reloadData()
+                self.delegate.setActivityState(isOn: false)
+                if self.dataSource?.items?.isEmpty ?? true {
+                    self.delegate.showEmptyContent()
+                }
             }
         }
     }

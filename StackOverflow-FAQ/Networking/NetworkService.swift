@@ -14,18 +14,8 @@ final class NetworkService<T: Decodable> {
     private let filter = "&filter=!9YdnSMKKT"
     private let basePath = "https://api.stackexchange.com/2.2/"
     
-    
     func fetch(with type: CellType, and query: Query, completion: @escaping (_ items: T?, _ error: Error?) -> Void) {
-//        let tagged = type == .tags ? "" : query.tagged ?? ""
-//        let fltr = type == .answers ? filter : ""
-//        let toDate = query.toDate != nil ? "&todate=\(query.toDate)" : ""
-//        let maxCount = query.maxCount != nil ? "&max=\(query.maxCount)" : ""
-//        let questionID = query.questionID != nil ? "\(query.questionID)" : ""
-//        let URL = basePath + type.rawValue + "?" + "page=\(query.page)" + "&pagesize=\(query.pageSize)" + "&todate=\(query.toDate)" + "&order=desc" + "&sort=\(query.sort.value)" + "&tagged=\(tagged)" + "&site=stackoverflow"  + key + fltr
-//        let URL = basePath + type.rawValue + "?" + "page=\(query.page)" + "&pagesize=\(query.pageSize)" + toDate + maxCount + "&order=desc" + "&sort=\(query.sort.value)" + "&tagged=\(tagged)" + "&site=stackoverflow"  + key + fltr
         let URL = getURL(with: type, and: query)
-
-        print(URL, "URL")
         getData(urlString: URL) { (data, error) in
             guard let data = data, error == nil else {
                 print("Failed to get data")
@@ -90,12 +80,3 @@ private extension NetworkService {
         }
     }
 }
-
-//https://api.stackexchange.com/2.2/questions/25425516/answers?order=desc&sort=activity&site=stackoverflow&key=G*0DJzE8SfBrKn4tMej85Q((&filter=!9YdnSMKKT
-
-//https://api.stackexchange.com/2.2/questions/63978135/answers?&order=desc&sort=activity&site=stackoverflow&key=lM9LUyJRJfggLpICzMz*OQ((&filter=!9YdnSMKKT
-
-//https://api.stackexchange.com/2.2/questions/63980358/answers&order=desc&sort=activity&site=stackoverflow&key=lM9LUyJRJfggLpICzMz*OQ((&filter=!9YdnSMKKT
-
-
-//https://api.stackexchange.com/2.2/questions/63980358/answers?page=1&pagesize=25&order=desc&sort=activity&site=stackoverflow&key=lM9LUyJRJfggLpICzMz*OQ((&filter=!9YdnSMKKT

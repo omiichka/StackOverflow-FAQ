@@ -8,13 +8,15 @@
 
 import UIKit
 
-protocol QuestionPresenterOutput: BasePresenterOutput {
+protocol QuestionPresenterOutput: class {
     
     var currentView: QuestionView { get }
     
     func hideSlideMenu()
     func updatePosY(with offset: CGFloat)
     func push(_ item: Question)
+    func reloadData(for table: CellType?)
+    func setActivityState(isOn: Bool)
 }
 
 final class QuestionPresenter: NSObject {
@@ -79,6 +81,7 @@ extension QuestionPresenter: UIScrollViewDelegate {
 extension QuestionPresenter {
     
     func fetch(for contentView: UIView, with query: Query? = nil) {
+        self.delegate.setActivityState(isOn: true)
         if delegate.currentView === contentView {
             let query = query ?? Query.defaultTaggedItem
             NetworkService<QuestionItem>().fetch(with: .questions, and: query) { [unowned self] (data, error) in
@@ -86,6 +89,7 @@ extension QuestionPresenter {
                 DispatchQueue.main.async {
                     self.dataSource = data
                     self.delegate.reloadData(for: .questions)
+                    self.delegate.setActivityState(isOn: false)
                 }
             }
         } else {
@@ -95,6 +99,7 @@ extension QuestionPresenter {
                 DispatchQueue.main.async {
                     self.tagDataSource = data
                     self.delegate.reloadData(for: .tags)
+                    self.delegate.setActivityState(isOn: false)
                 }
             }
         }

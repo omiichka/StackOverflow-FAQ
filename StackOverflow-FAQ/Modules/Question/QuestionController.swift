@@ -16,6 +16,10 @@ final class QuestionController: UIViewController {
     private var isBarItemTouched = false
     private var offset: CGFloat = 0
     
+    var currentView: QuestionView {
+        return contentView
+    }
+    
     override func loadView() {
         view = contentView
     }
@@ -49,20 +53,21 @@ private extension QuestionController {
     }
     
     func setupNavigationItem() {
-        let rightItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didHandleBarItem(_:)))
+        let rightItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu"), style: .plain, target: self, action: #selector(didHandleBarItem(_:)))
         navigationItem.rightBarButtonItem = rightItem
     }
     
     func setupTagsView() {
         tagsView.delegate = presenter
         tagsView.dataSource = presenter
-        tagsView.frame = CGRect(x: -contentView.bounds.width / 1.5, y: offset + topbarHeight + 10, width: contentView.bounds.width / 1.5, height: contentView.bounds.height - topbarHeight - 10)
+        tagsView.frame = CGRect(x: -contentView.bounds.width / 1.5, y: topbarHeight + offset + 10, width: contentView.bounds.width / 1.5, height: contentView.bounds.height - topbarHeight - 10)
         presenter.fetch(for: tagsView)
         view.addSubview(tagsView)
     }
-
+    
     @objc func didHandleBarItem(_ sender: UIBarButtonItem) {
         isBarItemTouched = !isBarItemTouched
+        contentView.allowsSelection = !isBarItemTouched
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.tagsView.frame = CGRect(x: self.isBarItemTouched ? 0 : -self.view.bounds.width / 1.5, y: self.offset + self.topbarHeight + 10, width: self.contentView.bounds.width / 1.5, height: self.contentView.bounds.height - self.topbarHeight - 10)
         })
@@ -71,8 +76,9 @@ private extension QuestionController {
 
 extension QuestionController: QuestionPresenterOutput {
     
-    var currentView: QuestionView {
-        return contentView
+    func setActivityState(isOn: Bool) {
+        contentView.setActivityState(isOn: isOn)
+        tagsView.setActivityState(isOn: isOn)
     }
     
     func updatePosY(with offset: CGFloat) {
@@ -81,6 +87,7 @@ extension QuestionController: QuestionPresenterOutput {
     }
     
     func hideSlideMenu() {
+        contentView.allowsSelection = true
         isBarItemTouched = false
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.tagsView.frame.origin.x = -self.view.bounds.width / 1.5

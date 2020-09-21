@@ -32,22 +32,33 @@ final class AnswerController: UIViewController {
         setup()
         presenter.fetch(with: questionID)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }
 
 private extension AnswerController {
     
     func setup() {
-//        view.backgroundColor = #colorLiteral(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
-        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
         presenter.delegate = self
         contentView.delegate = presenter
         contentView.dataSource = presenter
     }
 }
 
-extension AnswerController: BasePresenterOutput {
+extension AnswerController: AnswerPresenterOutput {
     
-    func reloadData(for table: CellType? = nil) {
+    func setActivityState(isOn: Bool) {
+        contentView.setActivityState(isOn: isOn)
+    }
+    
+    func showEmptyContent() {
+        contentView.showEmptyView()
+    }
+    
+    func reloadData() {
         contentView.reloadData()
     }
 }

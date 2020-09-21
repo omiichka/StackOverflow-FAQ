@@ -14,6 +14,7 @@ final class DetailView: UIView {
     private let authorLabel = ContentLabel()
     private let numberOfAnswerLabel = ContentLabel()
     private let dateLabel = ContentLabel()
+    
     let showAnswersButton = ShowAnswersButton()
     
     var question: Question? {

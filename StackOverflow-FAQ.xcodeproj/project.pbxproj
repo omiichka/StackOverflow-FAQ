@@ -17,13 +17,12 @@
 		3B0FD8D125117B62007A0D2F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FD8D025117B62007A0D2F /* String.swift */; };
 		3B0FD8D325125C6A007A0D2F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FD8D225125C6A007A0D2F /* DetailView.swift */; };
 		3B0FD8D525125C72007A0D2F /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FD8D425125C72007A0D2F /* DetailController.swift */; };
-		3B0FD8E025140ACF007A0D2F /* InteractiveModalTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FD8DF25140ACF007A0D2F /* InteractiveModalTransitioningDelegate.swift */; };
-		3B0FD8E225140B4F007A0D2F /* InteractiveModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FD8E125140B4F007A0D2F /* InteractiveModalPresentationController.swift */; };
 		3B0FD8EB2514C47B007A0D2F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FD8EA2514C47B007A0D2F /* UIViewController.swift */; };
 		3B2C4BA72517F15300DBD898 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C4BA62517F15300DBD898 /* SeparatorView.swift */; };
 		3B2C4BA92517F1B000DBD898 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C4BA82517F1B000DBD898 /* TitleLabel.swift */; };
 		3B2C4BAB2517F24600DBD898 /* ShowAnswersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C4BAA2517F24600DBD898 /* ShowAnswersButton.swift */; };
 		3B2C4BAD2517F2A100DBD898 /* ContentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C4BAC2517F2A100DBD898 /* ContentLabel.swift */; };
+		3B58FF8F2519410600C9B277 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B58FF8E2519410600C9B277 /* UIView.swift */; };
 		3BB391AC251699B5004C6FB7 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB391AB251699B5004C6FB7 /* NSAttributedString.swift */; };
 		3BB391AF2516A21C004C6FB7 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB391AE2516A21C004C6FB7 /* AnswerView.swift */; };
 		3BB391B12516A226004C6FB7 /* AnswerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB391B02516A226004C6FB7 /* AnswerController.swift */; };
@@ -61,13 +60,12 @@
 		3B0FD8D025117B62007A0D2F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3B0FD8D225125C6A007A0D2F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3B0FD8D425125C72007A0D2F /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
-		3B0FD8DF25140ACF007A0D2F /* InteractiveModalTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveModalTransitioningDelegate.swift; sourceTree = "<group>"; };
-		3B0FD8E125140B4F007A0D2F /* InteractiveModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveModalPresentationController.swift; sourceTree = "<group>"; };
 		3B0FD8EA2514C47B007A0D2F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		3B2C4BA62517F15300DBD898 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		3B2C4BA82517F1B000DBD898 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		3B2C4BAA2517F24600DBD898 /* ShowAnswersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAnswersButton.swift; sourceTree = "<group>"; };
 		3B2C4BAC2517F2A100DBD898 /* ContentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLabel.swift; sourceTree = "<group>"; };
+		3B58FF8E2519410600C9B277 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3BB391AB251699B5004C6FB7 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		3BB391AE2516A21C004C6FB7 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 		3BB391B02516A226004C6FB7 /* AnswerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerController.swift; sourceTree = "<group>"; };
@@ -143,6 +141,7 @@
 				3B0FD8D025117B62007A0D2F /* String.swift */,
 				3B0FD8EA2514C47B007A0D2F /* UIViewController.swift */,
 				3BB391AB251699B5004C6FB7 /* NSAttributedString.swift */,
+				3B58FF8E2519410600C9B277 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -165,13 +164,6 @@
 				3B0FD8D425125C72007A0D2F /* DetailController.swift */,
 			);
 			path = Detail;
-			sourceTree = "<group>";
-		};
-		3B0FD8DA251361D8007A0D2F /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		3B26696825179D9300584A28 /* Tag */ = {
@@ -238,41 +230,12 @@
 				3BD67E86250FBEDE0091520F /* Modules */,
 				3BD67E46250F80C40091520F /* AppDelegate.swift */,
 				3BD67E48250F80C40091520F /* SceneDelegate.swift */,
-				3BD67E87250FBEF10091520F /* MB */,
 				3BD67E4C250F80C40091520F /* Main.storyboard */,
 				3BD67E4F250F80C70091520F /* Assets.xcassets */,
 				3BD67E51250F80C70091520F /* LaunchScreen.storyboard */,
 				3BD67E54250F80C70091520F /* Info.plist */,
 			);
 			path = "StackOverflow-FAQ";
-			sourceTree = "<group>";
-		};
-		3BD67E5A250F817F0091520F /* Table */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Table;
-			sourceTree = "<group>";
-		};
-		3BD67E5B250F818A0091520F /* DetailQuestion */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DetailQuestion;
-			sourceTree = "<group>";
-		};
-		3BD67E5C250F81B60091520F /* DetailAnswer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DetailAnswer;
-			sourceTree = "<group>";
-		};
-		3BD67E5D250F81BF0091520F /* Tag */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tag;
 			sourceTree = "<group>";
 		};
 		3BD67E72250FBD1B0091520F /* Entity */ = {
@@ -332,20 +295,6 @@
 				3BB391AD2516A1EE004C6FB7 /* Answer */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		3BD67E87250FBEF10091520F /* MB */ = {
-			isa = PBXGroup;
-			children = (
-				3B0FD8DA251361D8007A0D2F /* Components */,
-				3B0FD8E125140B4F007A0D2F /* InteractiveModalPresentationController.swift */,
-				3B0FD8DF25140ACF007A0D2F /* InteractiveModalTransitioningDelegate.swift */,
-				3BD67E5D250F81BF0091520F /* Tag */,
-				3BD67E5C250F81B60091520F /* DetailAnswer */,
-				3BD67E5B250F818A0091520F /* DetailQuestion */,
-				3BD67E5A250F817F0091520F /* Table */,
-			);
-			path = MB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +381,7 @@
 				3B0FD8CE2510FDEF007A0D2F /* ItemProtocol.swift in Sources */,
 				3B0FD8BF250FC0E8007A0D2F /* SortType.swift in Sources */,
 				3B2C4BAD2517F2A100DBD898 /* ContentLabel.swift in Sources */,
+				3B58FF8F2519410600C9B277 /* UIView.swift in Sources */,
 				3BD67E7C250FBD840091520F /* Answer.swift in Sources */,
 				3BD67E47250F80C40091520F /* AppDelegate.swift in Sources */,
 				3BD67E63250F820C0091520F /* QuestionPresenter.swift in Sources */,
@@ -449,11 +399,9 @@
 				3B0FD8D325125C6A007A0D2F /* DetailView.swift in Sources */,
 				3BD67E49250F80C40091520F /* SceneDelegate.swift in Sources */,
 				3BB391B32516A22E004C6FB7 /* AnswerPresenter.swift in Sources */,
-				3B0FD8E225140B4F007A0D2F /* InteractiveModalPresentationController.swift in Sources */,
 				3BB391AC251699B5004C6FB7 /* NSAttributedString.swift in Sources */,
 				3BD67E67250FA35B0091520F /* NetworkService.swift in Sources */,
 				3BD67E7E250FBD890091520F /* Owner.swift in Sources */,
-				3B0FD8E025140ACF007A0D2F /* InteractiveModalTransitioningDelegate.swift in Sources */,
 				3B0FD8C1250FC0F2007A0D2F /* SortTags.swift in Sources */,
 				3B2C4BAB2517F24600DBD898 /* ShowAnswersButton.swift in Sources */,
 				3BD67E76250FBD590091520F /* Tag.swift in Sources */,
@@ -610,7 +558,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.antybred.StackOverflow-FAQ.StackOverflow-FAQ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -628,7 +576,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.antybred.StackOverflow-FAQ.StackOverflow-FAQ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
